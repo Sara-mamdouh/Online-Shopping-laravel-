@@ -58,32 +58,39 @@ class ProductsController extends Controller
         return to_route("products.index");
             
     }
-    // public function edit($productID){
+    public function edit(Product $product){
 
-    //     $res =array_filter($this->products ,fn($product)=>$product["id"]==$productID);
-    //     $product =[...$res][0];
-    //     return view("products.edit",["product"=>$product]);
-    // }
-    // public function update($productID){
+        // $res =array_filter($this->products ,fn($product)=>$product["id"]==$productID);
+        // $product =[...$res][0];
+        //////////////////////
+        // $product = Product::find($productID);
+        /////////////////
+        return view("products.edit",["product"=>$product]);
+    }
+    public function update(Request $request,$productID){
 
-    //     $reqObject =request();
-    //     $reqObject->validate(
-    //         [
-    //             "name"=>"required|string",
-    //             "price"=>"required|numeric",
-    //         ]
-    //     );
-    //     $newProduct=[
-    //         "id"=>$reqObject->id,
-    //         "name"=>$reqObject->name,
-    //         "price"=>$reqObject->price
-    //     ];
-    //     $index =array_search($productID ,array_column($this->products,'id'));
-    //     $this->products[$index]=$newProduct;
-    //     // dd($this->products);
-    //     return to_route("products.index");
+        // $reqObject =request();
+        // $reqObject->validate(
+        //     [
+        //         "name"=>"required|string",
+        //         "price"=>"required|numeric",
+        //     ]
+        // );
+        // $newProduct=[
+        //     "id"=>$reqObject->id,
+        //     "name"=>$reqObject->name,
+        //     "price"=>$reqObject->price
+        // ];
+        // $index =array_search($productID ,array_column($this->products,'id'));
+        // $this->products[$index]=$newProduct;
+        // // dd($this->products);
+        $product = Product::find($productID);
+        $product->name =$request->name;
+        $product->price =$request->price;
+        $product->save();
+        return to_route("products.index");
 
-    // }
+    }
 
     public function destroy($productID){
         // $index =array_search($productID ,array_column($this->products,'id'));
