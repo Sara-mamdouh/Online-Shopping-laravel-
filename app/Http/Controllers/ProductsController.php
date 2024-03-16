@@ -70,11 +70,14 @@ class ProductsController extends Controller
 
     // }
 
-    // public function destroy($productID){
-    //     $index =array_search($productID ,array_column($this->products,'id'));
+    public function destroy($productID){
+        // $index =array_search($productID ,array_column($this->products,'id'));
 
-    //     // dd($this->products[$index]);
-    // }
+        // dd($this->products[$index]);
+        $product = Product::find($productID);
+        $product->delete();
+        return to_route("products.index");
+    }
 
     //
 }
