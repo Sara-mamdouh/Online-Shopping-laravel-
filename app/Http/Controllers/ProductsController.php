@@ -17,12 +17,15 @@ class ProductsController extends Controller
         $products = Product::all();
         return view("products.index",["products"=>$products]);
     }
-    // public function show($productID){
+    public function show($productID){
 
-    //     $res =array_filter($this->products ,fn($product)=>$product["id"]==$productID);
-    //     $product =[...$res][0];
-    //     return view("products.show",["product"=>$product]);
-    // }
+        // $res =array_filter($this->products ,fn($product)=>$product["id"]==$productID);
+        // $product =[...$res][0];
+
+        $product = Product::find($productID);
+        return view("products.show",["product"=>$product]);
+    }
+    
     // public function create(){
 
     //     return view("products.create");
