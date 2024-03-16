@@ -14,20 +14,23 @@
         <th scope="col">Name</th>
         <th scope="col">Price</th>
         <th scope="col">created_at</th>
+        <th scope="col">updated_at</th>
         <th scope="col">Acctions</th>
       </tr>
     </thead>
     <tbody>
       @foreach ($products as $product)
       <tr>
-        <th scope="row">{{$product["id"]}}</th>
-        <td>{{$product["name"]}}</td>
-        <td>{{$product["price"]}}</td>
-        <td>{{$product["created_at"]}}</td>
+        <th scope="row">{{$product->id}}</th>
+        <td>{{$product->name}}</td>
+        <td>{{$product->price}}</td>
+        <td>{{$product->created_at}}</td>
+        <td>{{$product->updated_at}}</td>
+
         <td>
-          <a href="{{ route("products.show",$product["id"])}}" class="btn btn-outline-primary">view</a>
-          <a href="{{ route("products.edit",$product["id"])}}" class="btn btn-outline-success">edit</a>
-          <form action="{{ route("products.destroy" ,$product["id"])}}" method="post" style="display: inline">
+          <a href="{{ route("products.show",$product->id)}}" class="btn btn-outline-primary">view</a>
+          <a href="{{ route("products.edit",$product->id)}}" class="btn btn-outline-success">edit</a>
+          <form action="{{ route("products.destroy" ,$product->id)}}" method="post" style="display: inline">
             @csrf
             @method("delete")
             <button  class="btn btn-outline-danger">delete</button>
