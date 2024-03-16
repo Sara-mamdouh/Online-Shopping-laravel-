@@ -97,6 +97,7 @@ class ProductsController extends Controller
 
         // dd($this->products[$index]);
         $product = Product::find($productID);
+        // dd($product);
         $product->delete();
         return to_route("products.index");
     }

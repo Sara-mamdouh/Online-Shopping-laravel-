@@ -30,17 +30,40 @@
         <td>
           <a href="{{ route("products.show",$product->id)}}" class="btn btn-outline-primary">view</a>
           <a href="{{ route("products.edit",$product->id)}}" class="btn btn-outline-success">edit</a>
-          <form action="{{ route("products.destroy" ,$product->id)}}" method="post" style="display: inline">
-            @csrf
-            @method("delete")
-            <button  class="btn btn-outline-danger">delete</button>
-
-          </form>
+        
+          <button  type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $product->id}}">delete</button>
 
         </td>
       </tr>  
+      <!-- Modal -->
+<div class="modal fade" id="#exampleModal{{ $product->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        are you sure
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <form action="{{route("products.destroy",$product->id)}}" method="post" style="display: inline">
+          @csrf
+          @method("delete")
+          <button  type="button" class="btn btn-primary " data-bs-toggle="modal" data-bs-target="#exampleModal{{ $product->id}}">delete</button>
+          {{-- @dd($product->id) --}}
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
       @endforeach
     </tbody>
   </table>
    
+  
+
+  <!-- Button trigger modal -->
+
+
+
+ 
 @endsection
+
