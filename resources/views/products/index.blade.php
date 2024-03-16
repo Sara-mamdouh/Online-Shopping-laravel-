@@ -31,12 +31,12 @@
           <a href="{{ route("products.show",$product->id)}}" class="btn btn-outline-primary">view</a>
           <a href="{{ route("products.edit",$product->id)}}" class="btn btn-outline-success">edit</a>
         
-          <button  type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $product->id}}">delete</button>
+          <button  type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#exampleModal{{$product->id}}">delete</button>
 
         </td>
       </tr>  
       <!-- Modal -->
-<div class="modal fade" id="#exampleModal{{ $product->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="#exampleModal{{$product->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-body">
@@ -47,7 +47,7 @@
         <form action="{{route("products.destroy",$product->id)}}" method="post" style="display: inline">
           @csrf
           @method("delete")
-          <button  type="button" class="btn btn-primary " data-bs-toggle="modal" data-bs-target="#exampleModal{{ $product->id}}">delete</button>
+          <button  type="button" class="btn btn-primary " data-bs-toggle="modal" data-bs-target="#exampleModal{{$product->id}}">delete</button>
           {{-- @dd($product->id) --}}
         </form>
       </div>
