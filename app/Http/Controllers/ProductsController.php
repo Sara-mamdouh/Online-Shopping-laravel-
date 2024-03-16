@@ -26,23 +26,38 @@ class ProductsController extends Controller
         return view("products.show",["product"=>$product]);
     }
     
-    // public function create(){
+    public function create(){
 
-    //     return view("products.create");
-    // }
-    // public function store(){
-    //     $reqObject =request();
-    //     // dd($reqObject);
-    //     $reqObject->validate(
-    //         [
-    //             "name"=>"required|string",
-    //             "price"=>"required|numeric",
-    //         ]
-    //     );
+        return view("products.create");
+    }
+    public function store(Request $request){
+        // $reqObject =request();
+        // dd($reqObject);
+        // $reqObject->validate(
+        //     [
+        //         "name"=>"required|string",
+        //         "price"=>"required|numeric",
+        //     ]
+        // );
     //     //secend step: store l data
-    //     return to_route("products.index");
+        $productName=$request->name;
+        $productPrice=$request->price;
+        // $newProduct = new Product;
+        // $newProduct->name = $productName;
+        // $newProduct->price = $productPrice;
+        // $newProduct->save();
+        Product::create(
+            [
+                'name'=>$productName,
+                'price'=>$productPrice
+            ]
+        );
+
+
+
+        return to_route("products.index");
             
-    // }
+    }
     // public function edit($productID){
 
     //     $res =array_filter($this->products ,fn($product)=>$product["id"]==$productID);

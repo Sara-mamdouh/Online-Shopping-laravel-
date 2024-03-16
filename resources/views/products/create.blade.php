@@ -6,10 +6,10 @@
 
 <form action="{{ route("products.store")}}" method="post" class="container mt-4">
   @csrf
-  <div class="mb-3">
+  {{-- <div class="mb-3">
     <label for="product_id" class="form-label">ID</label>
     <input type="text" class="form-control" id="product_id" name="id">
-  </div>
+  </div> --}}
   <div class="mb-3">
     <label for="product_name" class="form-label">name</label>
     <input type="text" class="form-control" id="product_name" name="name">
