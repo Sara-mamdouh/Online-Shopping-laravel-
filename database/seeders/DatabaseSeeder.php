@@ -1,9 +1,9 @@
 <?php
 
 namespace Database\Seeders;
-
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Database\Seeders\ProductrSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -18,5 +18,15 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+        // DB::table('product')->insert([
+        //     'name' => Str::random(10),
+        //     'email' => Str::random(10).'@example.com',
+        //     'password' => Hash::make('password'),
+        // ]);
+
+        $this->call([
+            ProductrSeeder::class,
+          
+        ]);
     }
 }
