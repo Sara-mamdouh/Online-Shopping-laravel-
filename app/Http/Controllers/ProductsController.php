@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Product;
 use Illuminate\Http\Request;
-
+use App\Http\Requests\StoreProductRequest;
 class ProductsController extends Controller
 {
     // public $products = Product::all();
@@ -30,7 +30,7 @@ class ProductsController extends Controller
 
         return view("products.create");
     }
-    public function store(Request $request){
+    public function store(StoreProductRequest $request){
         // $reqObject =request();
         // dd($reqObject);
         // $reqObject->validate(
