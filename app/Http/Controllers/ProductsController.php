@@ -14,7 +14,7 @@ class ProductsController extends Controller
     //     ["id"=>4 ,"name"=>"smart w","price"=>876,"created_at"=>"2024-03-02 21:00:00"]
     // ];
     public function index(){
-        $products = Product::all();
+        $products = Product::latest()->paginate(4);
         return view("products.index",["products"=>$products]);
     }
     public function show($productID){

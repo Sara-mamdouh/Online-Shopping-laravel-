@@ -8,12 +8,14 @@
   {{session('requestStatus')}}
 </div>
 @endif --}}
+@if(session()->has("requestStatus"))
 
 <div x-data="{ open: true }" x-init="setTimeout(()=>open=false,3000)">
     <div x-show="open" class="text-center alert alert-success">
       {{session('requestStatus')}}
     </div>  
 </div>
+@endif
 
 <div class="text-center mt-4">
   <div>
@@ -105,7 +107,9 @@
   <!-- Button trigger modal -->
 
 
+<div>
+   {{$products->links()}}
 
- {{-- {{$products->links()}} --}}
+</div>
 @endsection
 
