@@ -3,6 +3,18 @@
 <title> index</title>
 @endsection
 @section("content")
+{{-- @if(session()->has("requestStatus"))
+<div class="text-center alert alert-success">
+  {{session('requestStatus')}}
+</div>
+@endif --}}
+
+<div x-data="{ open: true }" x-init="setTimeout(()=>open=false,3000)">
+    <div x-show="open" class="text-center alert alert-success">
+      {{session('requestStatus')}}
+    </div>  
+</div>
+
 <div class="text-center mt-4">
   <div>
     <a href="{{route("products.create")}}" class="btn btn-success">add product</a>

@@ -55,7 +55,7 @@ class ProductsController extends Controller
 
 
 
-        return to_route("products.index");
+        return to_route("products.index")->with("requestStatus","product created successfuly");
             
     }
     public function edit(Product $product){
