@@ -13,4 +13,11 @@ class Product extends Model
         'name',
         'price'
     ];
+    public function scopeFilter($query ,$filter){
+        // dd($query);
+        if($filter->has('q')){
+        $searchValue=$filter->get("q");
+        return $query->where('name','like',"%$searchValue%");
+        };
+    }
 }

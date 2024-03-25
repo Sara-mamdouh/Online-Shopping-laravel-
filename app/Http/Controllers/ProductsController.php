@@ -13,8 +13,9 @@ class ProductsController extends Controller
     //     ["id"=>3 ,"name"=>"samsung","price"=>654,"created_at"=>"2024-03-02 16:00:00"],
     //     ["id"=>4 ,"name"=>"smart w","price"=>876,"created_at"=>"2024-03-02 21:00:00"]
     // ];
-    public function index(){
-        $products = Product::latest()->paginate(4);
+    public function index(Request $request){
+        // dd($request->query("q"));
+        $products = Product::latest()->filter($request->query)->paginate(4);
         return view("products.index",["products"=>$products]);
     }
     public function show($productID){

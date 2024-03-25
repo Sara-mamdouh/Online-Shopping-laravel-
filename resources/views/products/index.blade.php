@@ -17,6 +17,12 @@
 </div>
 @endif
 
+
+<form class="d-flex mt-4" role="search" action="{{route('products.index')}}" method="get">
+  <input type="text" class="form-control me-2" name="q" aria-label="search" placeholder="search">
+  <button class="btn btn-outline-primary me-2 ms-2" type="submit">Search</button>
+</form>
+
 <div class="text-center mt-4">
   <div>
     <a href="{{route("products.create")}}" class="btn btn-success">add product</a>
