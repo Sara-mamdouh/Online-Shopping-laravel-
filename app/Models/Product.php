@@ -17,7 +17,7 @@ class Product extends Model
         // dd($query);
         if($filter->has('q')){
         $searchValue=$filter->get("q");
-        return $query->where('name','like',"%$searchValue%");
+        return $query->where('name','like',"%$searchValue%")->orWhere("price","LIKE","%$searchValue%");
         };
     }
 }
