@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\ProductsController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Middleware\TestMiddleWare;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->middleware(TestMiddleWare::class);
 // Route::get('/products', ProductsController::class ."@index")->name("products.index");
 
 // Route::get('/products/create',[ProductsController::class,"create"])->name("products.create");
