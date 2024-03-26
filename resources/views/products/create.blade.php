@@ -4,7 +4,7 @@
 @endsection
 @section("content")
 
-<form action="{{ route("products.store")}}" method="post" class="container mt-4">
+<form action="{{ route("products.store")}}" method="post" class="container mt-4" enctype="multipart/form-data">
   @csrf
   {{-- <div class="mb-3">
     <label for="product_id" class="form-label">ID</label>
@@ -28,6 +28,10 @@
       {{$message}}
     </div>
   @enderror
+    <div class="mb-3">
+    <label for="product_image" class="form-label">product image</label>
+    <input type="file" class="form-control" id="product_image" name="photo">
+  </div>
   
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>

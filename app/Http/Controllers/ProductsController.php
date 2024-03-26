@@ -41,8 +41,11 @@ class ProductsController extends Controller
         //     ]
         // );
     //     //secend step: store l data
+        dd($request->file('photo')->store('public'));
+
         $productName=$request->name;
         $productPrice=$request->price;
+
         // $newProduct = new Product;
         // $newProduct->name = $productName;
         // $newProduct->price = $productPrice;
