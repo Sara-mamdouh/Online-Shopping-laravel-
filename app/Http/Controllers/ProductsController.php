@@ -45,7 +45,7 @@ class ProductsController extends Controller
 
         $productName=$request->name;
         $productPrice=$request->price;
-        $productPhoto=$request->file('photo')->store('public/images');
+        $productPhoto=$request->file('photo')->store('','public');
         // dd($productPhoto);
 
         // $newProduct = new Product;
@@ -94,7 +94,7 @@ class ProductsController extends Controller
         $product = Product::find($productID);
         $product->name =$request->name;
         $product->price =$request->price;
-        $product->photo =$request->file('photo')->store('public');;
+        $product->photo =$request->file('photo')->store('','public');
 
         $product->save();
         return to_route("products.index");

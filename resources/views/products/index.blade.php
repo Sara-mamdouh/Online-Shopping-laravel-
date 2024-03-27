@@ -45,7 +45,7 @@
         <th scope="row">{{$product->id}}</th>
         <td>{{$product->name}}</td>
         <td>{{$product->price}}</td>
-        <td>{{$product->photo}}</td>////////////
+        <td><img src="{{asset("storage/{$product->photo}")}}" width='80'></td>
         <td>{{$product->created_at}}</td>
         <td>{{$product->updated_at}}</td>
 
