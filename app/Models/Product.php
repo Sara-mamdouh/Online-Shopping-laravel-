@@ -11,7 +11,8 @@ class Product extends Model
 
     protected $fillable=[
         'name',
-        'price'
+        'price',
+        'photo'
     ];
     public function scopeFilter($query ,$filter){
         // dd($query);

@@ -5,7 +5,7 @@
 @section("content")
 
 <div class="container mt-4">
-  <form action="{{ route("products.update" ,$product->id)}}" method="post">
+  <form action="{{ route("products.update" ,$product->id)}}" method="post" enctype="multipart/form-data">
     @csrf
     @method("put")
     {{-- <div class="mb-3">
@@ -20,7 +20,10 @@
       <label for="product_price" class="form-label">price</label>
       <input type="text" class="form-control" id="product_price" name="price" value="{{ $product->price}}">
     </div>
-    
+    <div class="mb-3">
+      <label for="product_image" class="form-label">product image</label>
+      <input type="file" class="form-control" id="product_image" name="photo">
+    </div>
     <button type="submit" class="btn btn-primary">update</button>
   </form>
   

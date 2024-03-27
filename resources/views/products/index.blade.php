@@ -33,6 +33,7 @@
         <th scope="col">#ID</th>
         <th scope="col">Name</th>
         <th scope="col">Price</th>
+        <th scope="col">image</th>
         <th scope="col">created_at</th>
         <th scope="col">updated_at</th>
         <th scope="col">Acctions</th>
@@ -44,6 +45,7 @@
         <th scope="row">{{$product->id}}</th>
         <td>{{$product->name}}</td>
         <td>{{$product->price}}</td>
+        <td>{{$product->photo}}</td>////////////
         <td>{{$product->created_at}}</td>
         <td>{{$product->updated_at}}</td>
 

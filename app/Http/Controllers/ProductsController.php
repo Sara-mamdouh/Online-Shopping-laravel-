@@ -41,10 +41,12 @@ class ProductsController extends Controller
         //     ]
         // );
     //     //secend step: store l data
-        dd($request->file('photo')->store('public'));
+        // dd($request->file('photo')->store('public'));
 
         $productName=$request->name;
         $productPrice=$request->price;
+        $productPhoto=$request->file('photo')->store('public/images');
+        // dd($productPhoto);
 
         // $newProduct = new Product;
         // $newProduct->name = $productName;
@@ -53,7 +55,8 @@ class ProductsController extends Controller
         Product::create(
             [
                 'name'=>$productName,
-                'price'=>$productPrice
+                'price'=>$productPrice,
+                'photo'=>$productPhoto
             ]
         );
 
@@ -91,6 +94,8 @@ class ProductsController extends Controller
         $product = Product::find($productID);
         $product->name =$request->name;
         $product->price =$request->price;
+        $product->photo =$request->file('photo')->store('public');;
+
         $product->save();
         return to_route("products.index");
 
